@@ -1,0 +1,23 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "source": "Command Prompt",
+            "icon": "terminal-cmd"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe",
+    "terminal.integrated.env.windows": {
+        "VIRTUAL_ENV": "${workspaceFolder}/venv"
+    },
+    "terminal.integrated.shellArgs.windows": {
+        "Command Prompt": [
+            "/K",
+            "call ${workspaceFolder}\\venv\\Scripts\\activate.bat"
+        ]
+    }
+}

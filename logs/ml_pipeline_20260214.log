@@ -1,0 +1,102 @@
+2026-02-14 13:01:40 | INFO     | MLPipeline | ML Pipeline initialized
+2026-02-14 13:01:40 | INFO     | MLPipeline | Starting model training pipeline
+2026-02-14 13:01:40 | INFO     | MLPipeline | Training set: 800, Validation set: 200
+2026-02-14 13:01:40 | INFO     | MLPipeline | Starting model training
+2026-02-14 13:01:42 | ERROR    | MLPipeline | Training failed: 'GradientBoostingClassifier' object has no attribute 'validation_score_'
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1142, in train_model
+    self.model.train(X_train, y_train, X_val, y_val)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 420, in train
+    self.model.validation_score_
+AttributeError: 'GradientBoostingClassifier' object has no attribute 'validation_score_'
+2026-02-14 13:01:42 | ERROR    | MLPipeline | Training interrupted: 'GradientBoostingClassifier' object has no attribute 'validation_score_'
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1142, in train_model
+    self.model.train(X_train, y_train, X_val, y_val)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 420, in train
+    self.model.validation_score_
+AttributeError: 'GradientBoostingClassifier' object has no attribute 'validation_score_'
+2026-02-14 13:01:42 | DEBUG    | MLPipeline | Making predictions for 5 samples
+2026-02-14 13:01:42 | ERROR    | MLPipeline | Prediction failed: Model not trained yet
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1171, in predict
+    predictions, confidence = self.model.predict_with_confidence(features)
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 462, in predict_with_confidence
+    raise ValueError("Model not trained yet")
+ValueError: Model not trained yet
+2026-02-14 13:01:42 | ERROR    | MLPipeline | Invalid prediction input: Model not trained yet
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1171, in predict
+    predictions, confidence = self.model.predict_with_confidence(features)
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 462, in predict_with_confidence
+    raise ValueError("Model not trained yet")
+ValueError: Model not trained yet
+2026-02-14 13:01:42 | INFO     | MLPipeline | Validating 0 predictions
+2026-02-14 13:01:42 | ERROR    | MLPipeline | Validation failed: Found input variables with inconsistent numbers of samples: [3, 0]
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1202, in validate
+    return self.validation.validate_predictions(predictions, actual_results)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 562, in validate_predictions
+    accuracy = accuracy_score(actual_positions, pred_positions)
+  File "C:\Users\Ekaksh\AppData\Roaming\Python\Python314\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Ekaksh\AppData\Roaming\Python\Python314\site-packages\sklearn\metrics\_classification.py", line 411, in accuracy_score
+    y_type, y_true, y_pred, sample_weight = _check_targets(
+                                            ~~~~~~~~~~~~~~^
+        y_true, y_pred, sample_weight
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ekaksh\AppData\Roaming\Python\Python314\site-packages\sklearn\metrics\_classification.py", line 108, in _check_targets
+    check_consistent_length(y_true, y_pred, sample_weight)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ekaksh\AppData\Roaming\Python\Python314\site-packages\sklearn\utils\validation.py", line 464, in check_consistent_length
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Found input variables with inconsistent numbers of samples: [3, 0]
+2026-02-14 13:02:25 | INFO     | MLPipeline | ML Pipeline initialized
+2026-02-14 13:02:25 | INFO     | MLPipeline | Starting model training pipeline
+2026-02-14 13:02:25 | INFO     | MLPipeline | Training set: 800, Validation set: 200
+2026-02-14 13:02:25 | INFO     | MLPipeline | Starting model training
+2026-02-14 13:02:36 | INFO     | MLPipeline | Model training complete. Version: 20260214_130225
+2026-02-14 13:02:36 | INFO     | MLPipeline | Running 5-fold cross-validation
+2026-02-14 13:02:43 | ERROR    | MLPipeline | Training failed: unsupported format string passed to list.__format__
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1163, in train_model
+    cv_results = self.model.cross_validate(X_train, y_train)
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 523, in cross_validate
+    self.logger.log_metrics("cross_validation", results)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 151, in log_metrics
+    msg = f"[{stage}] " + " | ".join([f"{k}: {v:.4f}" for k, v in metrics.items()])
+                                             ^^^^^^^
+TypeError: unsupported format string passed to list.__format__
+2026-02-14 13:02:43 | ERROR    | MLPipeline | Training interrupted: unsupported format string passed to list.__format__
+Traceback (most recent call last):
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 1163, in train_model
+    cv_results = self.model.cross_validate(X_train, y_train)
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 523, in cross_validate
+    self.logger.log_metrics("cross_validation", results)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Ekaksh\OneDrive\Documents\projects\slash\ml_pipeline.py", line 151, in log_metrics
+    msg = f"[{stage}] " + " | ".join([f"{k}: {v:.4f}" for k, v in metrics.items()])
+                                             ^^^^^^^
+TypeError: unsupported format string passed to list.__format__
+2026-02-14 13:02:43 | DEBUG    | MLPipeline | Making predictions for 5 samples
+2026-02-14 13:02:44 | INFO     | MLPipeline | Validating 3 predictions
+2026-02-14 13:03:13 | INFO     | MLPipeline | ML Pipeline initialized
+2026-02-14 13:03:13 | INFO     | MLPipeline | Starting model training pipeline
+2026-02-14 13:03:13 | INFO     | MLPipeline | Training set: 800, Validation set: 200
+2026-02-14 13:03:13 | INFO     | MLPipeline | Starting model training
+2026-02-14 13:03:26 | INFO     | MLPipeline | Model training complete. Version: 20260214_130313
+2026-02-14 13:03:26 | INFO     | MLPipeline | Running 5-fold cross-validation
+2026-02-14 13:03:37 | INFO     | MLPipeline | Model saved to models/race_predictor_v20260214_130313.pkl
+2026-02-14 13:03:37 | INFO     | MLPipeline | Model training complete
+2026-02-14 13:03:37 | DEBUG    | MLPipeline | Making predictions for 5 samples
+2026-02-14 13:03:37 | INFO     | MLPipeline | Validating 3 predictions
